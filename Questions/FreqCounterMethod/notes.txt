@@ -1,0 +1,9 @@
+Anytime when you have multiple pieces of data and you need to comapre them.
+
+see if they consist of same individual pieces.
+
+if one array is equal to other squared array 
+
+if  you need to tell if numbers consist of same digits just in a different order
+
+use frequenct counter pattern method: in which declare an object and comapre it with another object with given conditions.

@@ -1,0 +1,19 @@
+1- Understand the problem
+ a- Can I restate the problem in my words.
+ b- What are the inputs that go into the problem.
+ c- What are the outputs that should come from the solution.
+ d- Can the outputs be determined from the problem.
+ e- How should I label the important pieces of data that are the part of the problem.
+
+2- Explore concrete examples
+ a- Start with simple examples
+ b- Progress to more complex examples
+ c- Explore examples with empty inputs
+ d- Explore examples with invalid inputs
+
+3- Break it down
+ a- Explicitly write out the steps you need to take. 
+
+4- Solve/Simplify
+
+5- Look back and refactor

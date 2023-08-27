@@ -1,4 +1,5 @@
 Creating pointers of values that corresponds to an index or position and move 
+
 towards beginning, end or middle based on a certain condition
 
 very efficient for solving problems with minimal space compexity

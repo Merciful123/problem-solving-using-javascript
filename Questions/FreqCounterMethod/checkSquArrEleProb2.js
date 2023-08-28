@@ -54,12 +54,11 @@ function sameElementsSqaured(arr1, arr2) {
   return true;
 }
 
-// console.log(sameElementsSqaured([1, 2, 3], [1, 4, 9]));
+console.log(sameElementsSqaured([1, 2, 3], [1, 4, 9]));
 
 //
 
 function validAnagram(str1, str2) {
-  // add whatever parameters you deem necessary - good luck!
   //   edge case
   if (str1.length !== str2.length) {
     return false;
@@ -79,11 +78,16 @@ function validAnagram(str1, str2) {
     const letter = str2[i];
     if (!obj[letter]) {
       return false;
-    } else {
-      obj[letter] -= 1;
     }
+    // else {
+    //   console.log(obj);
+
+    //   obj[letter] -= 1;
+
+    // }
+
   }
   return true;
 }
 
-console.log(validAnagram("aamir", "rami"));
+// console.log(validAnagram("aamiar", "ramiaa"));

@@ -35,7 +35,10 @@ function CharCount(str) {
     if (isAlphaNum(char)) {
       obj[char] = ++obj[char] || 1;    // if obj[char] available in obj then ++ otherwise add 1.
     }
+
   }
+  console.log(obj);
+
   return obj;
 }
 

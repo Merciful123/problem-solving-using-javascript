@@ -17,18 +17,20 @@ function areThereDuplicates() {
 // console.log(areThereDuplicates(1, 2, 3, 4, 10, 10));
 
 
+// other method
 function areThereDuplicates() {
-    const frequencyCounter = {};
-    for (let arg of arguments) {
-        // first time it is false as no elements in FrequencyCounter
-        if (frequencyCounter[arg]) {
-            return true;
-        }
-        // this adds element in frequency counter
-        frequencyCounter[arg] = 1;
+  
+  const frequencyCounter = {};
+  for (let arg of arguments) {
+    // first time it is false as no elements in FrequencyCounter
+    if (frequencyCounter[arg]) {
+      return true;
     }
-    return false;
+    // this adds element in frequency counter
+    frequencyCounter[arg] = 1;
+  }
+  return false;
 }
 
 // Test cases
-// console.log(areThereDuplicates(1, 2, 3));          // false
+console.log(areThereDuplicates(1, 2, 3,1)); // false

@@ -1,5 +1,4 @@
 //  Naive approach
-
 function checkSquaredArrayElements(arr1, arr2) {
   // edge case
   if (arr1.length !== arr2.length) {

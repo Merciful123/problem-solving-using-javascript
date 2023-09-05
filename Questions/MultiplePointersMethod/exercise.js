@@ -37,7 +37,10 @@ function isSubsequence(str1, str2) {
   return false;
 }
 
-console.log(isSubsequence("hey", "he aamir"))
+// console.log(isSubsequence("hey", "he aamir"))
+
+
+
 // isSubsequence Solution - Recursive but not O(1) Space
 
 

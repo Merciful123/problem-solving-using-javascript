@@ -37,8 +37,6 @@ function CharCount(str) {
     }
 
   }
-  console.log(obj);
-
   return obj;
 }
 

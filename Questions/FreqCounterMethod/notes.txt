@@ -6,4 +6,56 @@ example- if one array is equal to other squared array
 
 example- if  you need to tell if numbers consist of same digits just in a different order
 
-use frequenct counter pattern method: in which declare an object and comapre it with another object with given conditions.
+use frequenct counter pattern method: in which declare an object 
+and comapre it with another object with given conditions.
+
+
+** Tips and tricks of using it
+
+The frequency counter method is a useful technique for solving problems that involve comparing the frequencies of elements in two or more arrays or strings. Here are some tips and tricks for using the frequency counter method effectively:
+
+1. **Understand the Problem**:
+   - Clearly understand the problem statement, including any constraints or requirements related to element frequencies.
+
+2. **Use Objects or Maps**:
+   - Typically, you'll use objects or maps to create frequency counters.
+   - For example, in JavaScript, you can use an object where keys represent elements, and values represent their frequencies.
+
+3. **Build Frequency Counters**:
+   - Create frequency counters for all relevant arrays or strings involved in the problem.
+   - Count the occurrences of each element or character in the data.
+
+4. **Handle Edge Cases**:
+   - Pay attention to edge cases, such as empty arrays or strings, and handle them appropriately in your code.
+
+5. **Comparing Counters**:
+   - Compare the frequency counters as needed for the problem.
+   - You can check if two frequency counters are equal, or if one is a subset of the other.
+
+6. **Optimize for Efficiency**:
+   - Consider using the frequency counter method to optimize algorithms for problems like anagrams, palindrome checks, or duplicates detection.
+
+7. **Multiple Counters**:
+   - In some problems, you may need to maintain multiple frequency counters.
+   - For instance, when checking if one string can be rearranged to form another (anagram), you'll need two frequency counters.
+
+8. **Consider Data Types**:
+   - Be mindful of data types when dealing with character frequencies.
+   - For case-insensitive comparisons, consider converting characters to lowercase or uppercase.
+
+9. **Time Complexity Analysis**:
+   - Analyze the time complexity of your solution when using frequency counters. It's often linear (O(N)), where N is the size of the input data.
+
+10. **Additional Data Structures**:
+    - In some cases, you might need additional data structures to solve the problem efficiently alongside frequency counters.
+
+11. **Testing and Debugging**:
+    - Thoroughly test your code with various test cases to ensure it handles all scenarios correctly.
+    - Debugging tools can be helpful to inspect the content of frequency counters during development.
+
+12. **Code Readability**:
+    - Write clean and readable code with meaningful variable names and comments to explain your thought process.
+
+13. **Practice**: Like any other problem-solving technique, practice is key to mastering the frequency counter method. The more you use it, the more comfortable you'll become with identifying when and how to apply it.
+
+The frequency counter method is particularly helpful in scenarios where you need to compare or analyze the distribution of elements or characters in multiple data sources efficiently.

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            const bubbleSortAlgo = (arr) => {
+                var noSwaps;
+                for (let i = arr.length; i > 0; i--) {
+                    noSwaps = true;
+                    for (let j = 0; j < i - 1; j++) {
+                        console.log(arr[j], arr[j + 1], arr);
+                        if (arr[j] > arr[j + 1]) {
+                            let temp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = temp;
+                            noSwaps = false;
+                        }
+                    }
+                    if (noSwaps) {
+                        console.log("No Swaps")
+                        break;
+                    }
+                }
+                return arr;
+            };
+            // console.log(bubbleSortAlgo([1, 2, 3, 4, 5, 6, 9, 7, 8]));
+
+            const bubbleSort2 = (arr) => {
+                const swap = (arr, id1, id2) => {
+                    [arr[id1], arr[id2]] = [arr[id2], arr[id1]];
+                };
+                var noSwaps;
+                for (let i = arr.length; i > 0; i--) {
+                    noSwaps = true; // short circuit to break the loop
+                    for (j = 0; j < i - 1; j++) {
+                        if (arr[j] > arr[j + 1]) {
+                            swap(arr, j, j + 1);
+                            noSwaps = false; // here make it true to avoid unnecessary loops
+                        }
+                        console.log(arr, arr[j], arr[j + 1]);
+                        // console.log("first pass");
+                        // noSwaps = false;
+                    }
+                    if (noSwaps) {
+                        console.log("Firt pass")
+                        break;
+                    }
+                }
+                return arr;
+            };
+            console.log(bubbleSort2([1, 2, 3, 4, 5, 6, 9, 7, 8]));
+
+        </script>
+
+    </body>
+
+</html>

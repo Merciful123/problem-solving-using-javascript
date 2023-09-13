@@ -56,21 +56,19 @@ const bubbleSort2 = (arr) => {
   const swap = (arr, id1, id2) => {
     [arr[id1], arr[id2]] = [arr[id2], arr[id1]];
   };
-  //   var noSwaps;
+  var noSwaps;
   for (let i = arr.length; i > 0; i--) {
-    // noSwaps = true; // short circuit to break the loop
+    noSwaps = true; // short circuit to break the loop
     for (j = 0; j < i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
         swap(arr, j, j + 1);
-        // noSwaps = false; // here make it true to avoid unnecessary loops
+        noSwaps = false; // here make it true to avoid unnecessary loops
       }
       console.log(arr, arr[j], arr[j + 1]);
       console.log("first pass");
-      //   noSwaps = false;
     }
-    // if (noSwaps) break;
+    if (noSwaps) break;
   }
   return arr;
 };
-
 console.log(bubbleSort2([1, 2, 3, 4, 5, 6, 7]));

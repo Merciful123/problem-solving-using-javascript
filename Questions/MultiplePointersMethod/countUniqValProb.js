@@ -14,7 +14,23 @@ function countUniqueValues(arr) {
   return count;
 }
 
-// console.log(countUniqueValues([4,5,13, 4, 6, 6, 7, 9, 11, 12, 12, 12, 12]));
+console.log(countUniqueValues([4, 5, 13, 4, 6, 6, 7, 9, 11, 12, 14,15]));
+
+const unique = (arr) => {
+  if (arr.length === 0) return 0
+  let count = 0
+  for (let i = 1, j = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[j]) {
+      count++
+    }
+    j = i
+
+  }
+
+  return count +1
+}
+console.log(unique([4, 5, 13, 4, 6, 6, 7, 9, 11, 12,14,15]));
+
 
 // Key differences between the two functions:
 
@@ -40,4 +56,4 @@ function freqCounter(arr) {
   return firstPoint + 1;
 }
 
-console.log(freqCounter([4, 4, 5, 11, 12, 12, 12, 12]));
+// console.log(freqCounter([4, 4, 5, 11, 12, 12, 12, 12]));

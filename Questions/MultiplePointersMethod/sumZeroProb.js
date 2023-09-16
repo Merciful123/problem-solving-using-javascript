@@ -12,7 +12,7 @@ function sumZeroProb(arr) {
         }
     }
 }
-console.log(sumZeroProb([ -2, -1, 0, 1, 2, 3, 4, 5]));
+console.log(sumZeroProb([-2, -1, 0, 1, 2, 3, 4, 5]));
 
 
 // Multiple Pointers Method
@@ -36,3 +36,17 @@ function sumZero(arr) {
 }
 
 // console.log(sumZero([-2,-1,0,1,3]))
+
+
+const sumZero2 = (arr) => {
+    let start = 0
+    let end = arr.length -1
+
+    while (start < end) {
+        if (arr[start] + arr[end] === 0) return [arr[start], arr[end]]
+        else if (arr[start] + arr[end] > 0) end--
+        else start ++
+    }
+}
+
+console.log(sumZero2([-2, -1, 0, 1, 2, 3, 4, 5]));

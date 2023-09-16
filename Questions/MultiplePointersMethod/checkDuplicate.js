@@ -1,32 +1,46 @@
 //Q:- Implement a function called, areThereDuplicates which accepts a variable number of arguments, and checks whether there are any duplicates among the arguments passed in.  You can solve this using the frequency counter pattern OR the multiple pointers pattern.
 
-
-
-
 // check duplicate o(n logn) because of sorted array
 
-
 const checkDuplicate = (...args) => {
-    //  sort arguments
-    args.sort((a, b) => {
-        if (a < b) return -1
-        if (a > b) return 1
-        return 0
-    })
+  //  sort arguments
+  args.sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  });
 
-    let start = 0
-    let next = 1
-    while ( next < args.length) {
-        if (args[start] === args[next]) {
-            return true
-        }
-        start++, next++
+  let start = 0;
+  let next = 1;
+  while (next < args.length) {
+    if (args[start] === args[next]) {
+      return true;
     }
-    return false
-}
+    start++, next++;
+  }
+  return false;
+};
+console.log(checkDuplicate(1,2,3,4,4,5,15))
 
-// console.log(checkDuplicate(1,2,3,4,5,15))
+const checkDuplicate2 = (...args) => {
+  args.sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  });
 
+  let start = 0;
+  let next = 1;
+
+  while (start < args.length) {
+    if (args[start] === args[next]) return true;
+    start++;
+    next++;
+  }
+  return false;
+};
+
+console.log(checkDuplicate2(1,2,3,4,5,5,15))
 
 // one liner solution
 
@@ -35,4 +49,3 @@ function areThereDuplicates() {
 }
 
 // console.log(areThereDuplicates(1,2,3,4,5,5))
-

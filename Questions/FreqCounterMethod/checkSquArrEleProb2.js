@@ -1,4 +1,9 @@
+//Q:-- Write a function called same, which accepts two arrays. The function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.
+
+
 //  Naive approach
+
+
 function checkSquaredArrayElements(arr1, arr2) {
   // edge case
   if (arr1.length !== arr2.length) {
@@ -56,6 +61,9 @@ function sameElementsSqaured(arr1, arr2) {
 console.log(sameElementsSqaured([1, 2, 3], [1, 4, 9]));
 
 //
+
+
+//Q:- Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
 
 function validAnagram(str1, str2) {
   //   edge case

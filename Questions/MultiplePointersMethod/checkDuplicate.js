@@ -1,4 +1,11 @@
+//Q:- Implement a function called, areThereDuplicates which accepts a variable number of arguments, and checks whether there are any duplicates among the arguments passed in.  You can solve this using the frequency counter pattern OR the multiple pointers pattern.
+
+
+
+
 // check duplicate o(n logn) because of sorted array
+
+
 const checkDuplicate = (...args) => {
     //  sort arguments
     args.sort((a, b) => {

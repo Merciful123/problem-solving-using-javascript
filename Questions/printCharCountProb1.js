@@ -25,7 +25,6 @@ function printCharCount(str) {
 
 // console.log(printCharCount("helloe !"))
 
-
 //  Second method
 
 function CharCount(str) {
@@ -33,9 +32,8 @@ function CharCount(str) {
   for (var char of str) {
     char = char.toLowerCase();
     if (isAlphaNum(char)) {
-      obj[char] = ++obj[char] || 1;    // if obj[char] available in obj then ++ otherwise add 1.
+      obj[char] = ++obj[char] || 1; // if obj[char] available in obj then ++ otherwise add 1.
     }
-
   }
   return obj;
 }
@@ -53,3 +51,30 @@ function isAlphaNum(char) {
 }
 
 console.log(CharCount(" he llopw ! 892"));
+
+// practice
+
+const charCountObj1 = (str) => {
+  const isAlphaNumNew = (str)=> {
+    const character = str.charCodeAt(0);
+    if (
+      !(character > 47 && character < 58) &&
+      !(character > 64 && character < 91) &&
+      !(character > 96 && character < 123)
+    )
+      return false;
+    return true;
+  }
+  let countObj = {};
+
+  for (let chr of str) {
+    chr = chr.toLowerCase();
+    if (isAlphaNumNew(chr)) countObj[chr] = (countObj[chr] || 0) + 1;
+  }
+
+  return countObj;
+};
+
+
+
+console.log(charCountObj1("aamir 3@#0 120-"))

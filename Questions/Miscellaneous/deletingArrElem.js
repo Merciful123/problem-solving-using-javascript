@@ -1,22 +1,13 @@
-arr1 = [1, 2, 3, 4, 5];
+ 
+let arr = [1, 2, 3, 6, 6, 6]
 
-let val = 1;
+let val = 1
 
-let count = 0;
-
-var reducedLength = false;
-for (let i = 0; i < arr1.length; i++) {
-  if (arr1[i] != val) {
-    arr1[count++] = arr1[i];
-    // console.log(count)
-    // console.log(arr1[count])
-  } else {
-    reducedLength = true;
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] === val) {
+    arr.splice(i, arr[i]);
   }
 }
 
-if (reducedLength) {
-  arr1.length -= 1;
-}
-
-console.log(arr1);
+console.log(arr)
+ 

@@ -1,37 +1,20 @@
 // Recursion CHALLENGE Problem Set Solutions Part 2
 // capitalizeWords Solution
+// Q:-- Write a recursive function called capitalizeFirst. Given an array of strings, capitalize the first letter of each string in the array.
 
-function capitalizeWords(arr) {
-  //   if (array.length === 1) {
-  //     return [array[0].toUpperCase()];
-  //   }
-  //   let res = capitalizeWords(array.slice(0, -1));
-  //   res.push(array.slice(array.length-1)[0].toUpperCase());
-  //   return res;
 
-  // if (array.length === 0) {
-  //   return [];
-  // }
-
-  //  let capitalizeFirst = array[0].charAt(0).toUpperCase() + array[0].slice(1);
-
-  //  let result = capitalizeWords(array.slice(1));
-
-  // //  let result = [capitalizeFirst, ...capitalizeWordsnew];
-
-  // //  console.log(result);
-
-  //  return [capitalizeFirst, ...result];
- 
+function capitalizeWords(array) {
+    if (array.length === 1) {
+      return [array[0].toUpperCase()];
+    }
+    let res = capitalizeWords(array.slice(0, -1));
+    res.push(array.slice(array.length-1)[0].toUpperCase());
+    return res;
 }
 
-// console.log(capitalizeWords(["aamir", "alina"]));
+console.log(capitalizeWords(["aamir", "alina", "danish"]))
 
-// let newArr = ["aamir", "yasir", "alina"]
-// let resNew = capitalizeWords(newArr.slice(0, -1));
-// resNew.push(newArr.slice(newArr.length - 1)[0].toUpperCase());
-// // console.log(newArr.slice(0, -1));
-// console.log((newArr.length-1)[0]);
+
 
 // nestedEvenSum Solution
 
@@ -43,7 +26,17 @@ function nestedEvenSum(obj, sum = 0) {
       sum += obj[key];
     }
   }
-  return sum;
+    return sum;
+    // with single parameter
+    //  let sum = 0;
+    //  for (var key in obj) {
+    //    if (typeof obj[key] === "object") {
+    //      sum += nestedEvenSum(obj[key]);
+    //    } else if (typeof obj[key] === "number" && obj[key] % 2 === 0) {
+    //      sum += obj[key];
+    //    }
+    //  }
+    //  return sum;
 }
 // capitalizeFirst Solution
 
@@ -58,7 +51,8 @@ function capitalizeFirst(array) {
   res.push(string);
   return res;
 }
-console.log(capitalizeFirst(["aman", "naman"]))
+// console.log(capitalizeFirst(["aman", "naman"]))
+
 // stringifyNumbers Solution
 
 function stringifyNumbers(obj) {
@@ -74,6 +68,7 @@ function stringifyNumbers(obj) {
   }
   return newObj;
 }
+
 // collectStrings Solution: Helper Method Recursion Version
 
 function collectStrings(obj) {
@@ -110,17 +105,19 @@ function collectStrings(obj) {
 
 
 const capFirst = (arr) => {
-    // first of all write code for capitalizing first word if length === 1 
+    // write code for base case, if length === 0 return empty array 
     if (arr.length === 0) {
         return []
     }
-    //  then initialize an array
-    //  pass every next element recursively  to capFirst function 
+   
+
+    //  write code for first word capitalization 
     let firstWord = arr[0][0].toUpperCase() + arr[0].slice(1)
 
+    //  now pass next elements to function recursively
     let nextWords = capFirst(arr.slice(1))
 
     return [firstWord, ...nextWords]
 
 }
-console.log(capFirst(["akram", "zulfi"]))
+// console.log(capFirst(["akram", "zulfi"]))

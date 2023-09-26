@@ -1,0 +1,7 @@
+--> this function accepts an array and a value
+
+--> loop through the array and check if the current array element is equal to the value
+
+--> if it is, return the index of the value found
+
+--> if not found return -1

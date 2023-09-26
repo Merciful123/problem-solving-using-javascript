@@ -28,7 +28,7 @@ const search1 = (arr, num) => {
   while (start <= end) {
     let mid = Math.floor((start + end) / 2)
     let average  = arr[mid]
-    console.log(start, end)
+    // console.log(start, end)
     if (average < num) start = mid + 1
     else if (average > num) end = mid - 1
     

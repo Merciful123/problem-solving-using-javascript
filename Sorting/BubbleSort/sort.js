@@ -67,7 +67,7 @@ const bubbleSort2 = (arr) => {
       console.log(arr, arr[j], arr[j + 1]);
       console.log("first pass");
     }
-    if (noSwaps) break;
+    if (noSwaps)  break;
   }
   return arr;
 };

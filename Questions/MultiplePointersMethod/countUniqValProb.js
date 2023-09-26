@@ -14,7 +14,7 @@ function countUniqueValues(arr) {
   return count;
 }
 
-console.log(countUniqueValues([4, 5, 13, 4, 6, 6, 7, 9, 11, 12, 14,15]));
+console.log(countUniqueValues([4, 5, 13, 4, 6, 6, 7, 9, 11, 12, 14,15]))
 
 const unique = (arr) => {
   if (arr.length === 0) return 0
@@ -24,10 +24,8 @@ const unique = (arr) => {
       count++
     }
     j = i
-
   }
-
-  return count +1
+  return count + 1
 }
 console.log(unique([4, 5, 13, 4, 6, 6, 7, 9, 11, 12,14,15]));
 

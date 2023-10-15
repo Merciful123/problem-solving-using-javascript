@@ -14,13 +14,13 @@ function bubbleSort(arr) {
         // arr[j+1] = arr[j]
         // arr[j] = temp
       }
-      console.log(arr[j], arr[j + 1], arr);
-    }
+      console.log(arr[i],arr[j]);
+    } 
   }
   return arr;
 }
 
-// console.log(bubbleSort([3, 7, 2, 9, 1, 4, 8]))
+console.log(bubbleSort([3, 7, 2, 9, 1, 4, 8]));
 
 // ** Bubble sort pseudocode
 
@@ -28,6 +28,23 @@ function bubbleSort(arr) {
 // --> start an inner loop with a variable called (j) from the beginning untill  (i-1)
 // --> if array[j] is greater than array[j+1] swap those two values
 // --> return the sorted array
+
+const bubbleSortRevise = (arr) => {
+  for (let i = 0; i < arr.length; i++){
+    for (let j = 0; j < arr.length - 1; j++){
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j]
+        arr[j] = arr[j + 1]
+        arr[j+1] = temp
+      }
+      console.log(arr[j], arr[j+1])
+    }
+  }
+  return arr
+}
+
+console.log(bubbleSortRevise([3, 7, 2, 9, 1, 4, 8]));
+
 
 const bubbleSortAlgo = (arr) => {
   var noSwaps;
@@ -71,4 +88,4 @@ const bubbleSort2 = (arr) => {
   }
   return arr;
 };
-console.log(bubbleSort2([1, 2, 3, 4, 5, 6, 7]));
+// console.log(bubbleSort2([1, 2, 3, 4, 5, 6, 7]));

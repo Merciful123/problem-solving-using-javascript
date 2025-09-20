@@ -23,7 +23,7 @@ function printCharCount(str) {
   // return object at end
 }
 
-// console.log(printCharCount("helloe !"))
+console.log(printCharCount("helloe !"))
 
 //  Second method
 
@@ -50,7 +50,7 @@ function isAlphaNum(char) {
   return true;
 }
 
-console.log(CharCount(" he llopw ! 892"));
+// console.log(CharCount(" he llopw ! 892"));
 
 // practice
 
@@ -77,4 +77,4 @@ const charCountObj1 = (str) => {
 
 
 
-console.log(charCountObj1("aamir 3@#0 120-"))
+// console.log(charCountObj1("aamir 3@#0 120-"))

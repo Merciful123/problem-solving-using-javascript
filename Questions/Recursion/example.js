@@ -10,6 +10,9 @@ const total = (num) => {
 
 // console.log(total(5));
 
+
+
+
 const total1 = (num) => {
   if (!num || typeof num !== "number") throw new Error("Invalid input");
   let result = 1;
@@ -46,15 +49,15 @@ const findOddValue = (nums) => {
   let OddNums = [];
   const helper = (helperInput) => {
     if (helperInput.length === 0) return;
-    if (helperInput[0] % 2 !== 0) {
+    if (helperInput[0]  === nums[0]) {
       OddNums.push(helperInput[0]);
     }
     helper(helperInput.slice(1));
   };
   helper(nums);
-  return OddNums;
+  return OddNums[0];
 };
-// console.log(findOddValue([]))
+console.log(findOddValue([1,1,2,2,4]))
 
 const findOddvalueRevision = (arr) => {
   if (!Array.isArray(arr)) throw new Error("invalid input");

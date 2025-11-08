@@ -15,6 +15,7 @@ const transposeMatrix = (arr)=> {
   
   for(let i = 0; i < cols; i++){
     resultArr[i] = [];
+    console.log("first lp",resultArr);
     for (let j= 0; j < rows; j++){
         resultArr[i][j] = 0;
     } 
@@ -24,6 +25,7 @@ const transposeMatrix = (arr)=> {
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       resultArr[j][i] = arr[i][j];
+      console.log("sec lp",resultArr);
     }
   }
 
@@ -36,7 +38,7 @@ const mar = [
     [7, 8, 9]
   ]
 
-// console.table(transposeMatrix(mar));
+console.table(transposeMatrix(mar));
 
 const transpose = (matrix) => {
     const rows = matrix.length;
@@ -85,4 +87,13 @@ function fibTabulation(n) {
     return dp[n];
 }
 
-console.log(fibTabulation(6))
+// console.log(fibTabulation(3))
+
+
+const LoopArray = (arr) =>{
+       for(let elem of arr){
+         console.log(elem);
+}
+}
+
+// console.log(LoopArray([1,2,3,4,5,]))

@@ -17,8 +17,8 @@ function curry(func) {
   };
 }
 
-function join(a, b, c,d) {
-  return `${a}_${b}_${c,d}`;
+function join(a, b, c) {
+  return `${a}_${b}_${c}`;
 }
 
 const curriedJoin = curry(join);
@@ -40,8 +40,9 @@ console.log(
 );
 
 console.log("third")
+
 console.log(
-  curriedJoin(1)(2)(3)(4) // '1_2_3'
+  curriedJoin(1)(2)(3) // '1_2_3'
 );
 
 

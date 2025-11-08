@@ -1,18 +1,52 @@
-const cachedApiCall = () => {
-
+const cachedApiCall = (cacheTime) => {
   let cacheResult = new Map();
-  console.log()
+  console.log(cacheTime);
 
-  return async function cached(url, options) {
+  
 
-    console.log(url, options);
+  return async (url, options) => {
+    
+      console.log("sec0", url)
 
-    const {key, timstamp} = {url ,options}
+    const cacheKey = JSON.stringify({ url, options });
+
+    const currentTime = new Date().getSeconds();
+
+    console.log(currentTime ?? "NA");
+
+    // check if we have a cached response and if it's still valid.
+
+    if (cacheResult.has(cacheKey)) {
+      const { data, timestamp } = cacheResult.get(cacheKey);
+
+      console.log(timestamp ?? "NA");
+      console.log(currentTime ?? "NA");
+
+      if (currentTime - timestamp < cacheTime) {
+        return data;
+      } else {
+        cacheResult.delete(cacheKey);
+      }
+    }
 
     try {
-      // const result = await cached(url);
-      // console.log(result.json());
-      console.log("first")
+      console.log("making api call");
+
+      console.log(currentTime ?? "NA");
+
+      // make the actual API call
+
+      console.log("sec", url)
+
+      const response = await fetch(url, options);
+      const data = response.json();
+
+      // store the response in cache with timestamp
+
+      cacheResult.set(cacheKey, { data, timestamp: currentTime });
+
+      return data;
+
     } catch (e) {
       console.log("error:- ", e);
     }
@@ -38,4 +72,6 @@ setTimeout(() => {
     console.log("3", a)
   );
 }, 1700);
+
 // This will make a new network call because the cache is expired, and log "3" with the data (which might be the same or different).
+

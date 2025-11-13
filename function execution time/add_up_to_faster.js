@@ -58,11 +58,51 @@ const findElemIndice = (arr, target) => {
 
 let result = []
 
-for( let i= 0; i < 3; i++){
+for( let i= 0; i < 7; i++){
   result[i] = [];
-  for (let j = 0; j < 3; j ++){
+  for (let j = 0; j < 7; j ++){
     result[i][j] = 0;
   } 
 }
 
-console.table(result)
+// console.table(result)
+
+function pattern (n){
+  for(let i = 1; i < n; i ++){
+    let row = "";
+    for(let j =1; j < i+1; j++ ){
+      row += j + "" 
+
+    }
+    console.log(row)
+
+  }
+}
+
+// pattern(7)
+
+function newPatter (n){
+  let row = "";
+  for(let i = n; i >= 1; i--){
+    row+= "*"
+    console.log(row)
+  }
+}
+
+// newPatter(4)
+
+function invertedPattern(n) {
+  let stars = "";  
+
+  // Build full line of stars first
+  for (let i = 0; i < n; i++) {
+    stars += "*";
+  }
+  console.log(stars)
+  // Now print reducing slices
+  for (let i = n; i >= 1; i--) {
+    // console.log(stars.slice(0, i));
+  }
+}
+
+invertedPattern(5);

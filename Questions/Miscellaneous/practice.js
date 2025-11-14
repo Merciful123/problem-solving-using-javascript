@@ -1,3 +1,4 @@
+
 function curry(fn){
     return function curried(...args){
         if(args.length >= fn.length){
@@ -21,10 +22,13 @@ function curry(fn){
 //     }
 // }
 
+
+
+
 function join(a,b,c){
     return `${a}_${b}_${c}`
 }
-
+ 
 // const curriedJoin = curry(join)
 // console.log("first")
 // console.log(curriedJoin(1,2,3))
@@ -34,64 +38,110 @@ function join(a,b,c){
 // console.log(curriedJoin(1)(2)(3))
 
 
-function cachedApiCall (cacheTime) {
+// function cachedApiCall (cacheTime) {
+
+//     let cacheResult = new Map();
+//     console.log(cacheTime)
+
+//     return async (url, options) =>{
+
+//         console.log("sec0", url)
+        
+//         let cacheKey = JSON.stringify({url, options});
+
+//         let currentTime = new Date().getSeconds();
+
+//         console.log(currentTime ?? "NA");
+        
+//         // check cache first before network request
+
+//         if(cacheResult.has(cacheKey)){
+//             const {data, timeStamp} = cacheResult.get(cacheKey);
+
+//             console.log(timeStamp ?? "NA");
+//             console.log(currentTime ?? "NA");
+
+//             if(currentTime - timeStamp < cacheTime){
+//                 return data;
+//             }else{
+//                 cacheResult.delete(cacheKey);
+//             }
+//         }
+
+//         // writing code for API call first
+        
+//         try{
+            
+//             console.log("making api call")
+//             console.log(currentTime)
+
+//             const response = await fetch(url, options);
+
+//             console.log("sec", url)
+            
+//             const data = response.json();
+            
+//             cacheResult.set(cacheKey, {data: data, timeStamp: currentTime})
+
+//             return data;
+
+//         } catch(error){
+//             console.log(error)
+//         }   
+//     }
+// }
+
+
+
+function cachedApiCall (cacheTime){
 
     let cacheResult = new Map();
-    console.log(cacheTime)
 
-    return async (url, options) =>{
 
-        console.log("sec0", url)
-        
-        let cacheKey = JSON.stringify({url, options});
 
-        let currentTime = new Date().getSeconds();
+    // first make an API call
 
-        console.log(currentTime ?? "NA");
-        
-        // check cache first before network request
+    return async (url, options) => {
 
-        if(cacheResult.has(cacheKey)){
-            const {data, timeStamp} = cacheResult.get(cacheKey);
+        let cacheKey = JSON.stringify({url, options})
 
-            console.log(timeStamp ?? "NA");
-            console.log(currentTime ?? "NA");
+        let currentTime = Date.now();
+        console.log(cacheTime, currentTime)
+        console.log("diff - ",currentTime - currentTime)
 
-            if(currentTime - timeStamp < cacheTime){
+        if (cacheResult.has(cacheKey)){
+
+            const { data, timeStamp } = cacheResult.get(cacheKey);
+
+            if ((currentTime - timeStamp )< cacheTime) {
                 return data;
             }else{
                 cacheResult.delete(cacheKey);
+
             }
         }
 
-        // writing code for API call first
-        
         try{
-            
-            console.log("making api call")
-            console.log(currentTime)
+            const response = await fetch(url, options); 
+            const result = response.json();
 
-            const response = await fetch(url, options);
+            cacheResult.set(cacheKey, {data : result, timeStamp: currentTime});
 
-            console.log("sec", url)
-            
-            const data = response.json();
-            
-            cacheResult.set(cacheKey, {data: data, timeStamp: currentTime})
-
-            return data;
+            return result;
 
         } catch(error){
-            console.log(error)
-        }   
+            console.log("error: - ", error)
+        }
     }
+
 }
 
 
-const call = cachedApiCall(1500);
+
+// const call = cachedApiCall(1500);
 
 call("https://jsonplaceholder.typicode.com/todos/1", {}).then((a) =>
-  console.log("1", a)
+  console.log("1",a)
 );
 
 // This will make a network call and log "1" with the data.
@@ -112,3 +162,70 @@ setTimeout(() => {
 
 // This will make a new network call because the cache is expired, and log "3" with the data (which might be the same or different).
 
+
+function cachedApiCall(cacheTime) {
+    let cacheResult = new Map();
+    let callCount = 0;
+
+    return async (url, options) => {
+        callCount++;
+        const callId = callCount;
+        let cacheKey = JSON.stringify({url, options});
+        let currentTime = Date.now();
+        
+
+        if (cacheResult.has(cacheKey)) {
+            const cachedData = cacheResult.get(cacheKey);
+            const timeDiff = currentTime - cachedData.timeStamp;
+            
+            console.log(` Time difference: ${timeDiff}ms`);
+            
+            if (timeDiff < cacheTime) {
+                console.log(`RETURNING CACHED DATA (${timeDiff}ms old)`);
+                return cachedData.data;
+            } else {
+                console.log(` CACHE EXPIRED (${timeDiff}ms > ${cacheTime}ms)`);
+                cacheResult.delete(cacheKey);
+            }
+        }
+
+        try {
+            const response = await fetch(url, options); 
+            const result = await response.json();
+
+            cacheResult.set(cacheKey, {
+                data: result, 
+                timeStamp: currentTime
+            });
+            
+            return result;
+        } catch(error) {
+            console.log("API CALL FAILED:", error);
+            throw error;
+        }
+    };
+}
+
+// Test the function
+const call = cachedApiCall(1500);
+
+console.log("=== TEST START ===");
+
+// First call - should make API call
+call("https://jsonplaceholder.typicode.com/todos/1", {})
+    .then((a) => console.log("1", a))
+    .catch(err => console.log("1 Error:", err));
+
+// Second call after 800ms - should use cache
+setTimeout(() => {
+    call("https://jsonplaceholder.typicode.com/todos/1", {})
+        .then((a) => console.log("2", a))
+        .catch(err => console.log("2 Error:", err));
+}, 800);
+
+// Third call after 1700ms - cache should be expired, new API call
+setTimeout(() => {
+    call("https://jsonplaceholder.typicode.com/todos/1", {})
+        .then((a) => console.log("3", a))
+        .catch(err => console.log("3 Error:", err));
+}, 1700);
